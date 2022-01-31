@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject } from '@angular/core';
+import { Component,   Input, SkipSelf } from '@angular/core';
 
-import { coursesServiceFactory } from '../factories/course-service-factory';
-import { COURSES_SERVICE_TOKEN } from '../injection-token/course-service-injection-token';
+import { coursesServiceFactory } from '../../factories/course-service-factory';
+import { COURSES_SERVICE_TOKEN } from '../../injection-token/course-service-injection-token';
 import { CoursesService } from '../services/courses.service';
 
 @Component({
@@ -18,9 +18,8 @@ import { CoursesService } from '../services/courses.service';
   ],
 })
 export class CourseCardComponent {
-  constructor(
-    @Inject(COURSES_SERVICE_TOKEN) private coursesService: CoursesService
-  ) {
+  @Input() course!: string;
+  constructor(@SkipSelf() private coursesService: CoursesService) {
     console.log(`Card component service Id = ${coursesService.id}`);
   }
 }

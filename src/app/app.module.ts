@@ -3,18 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { coursesServiceFactory } from './couses-component/factories/course-service-factory';
-import { COURSES_SERVICE_TOKEN } from './couses-component/injection-token/course-service-injection-token';
+import { coursesServiceFactory } from './factories/course-service-factory';
+import { COURSES_SERVICE_TOKEN } from './injection-token/course-service-injection-token';
 import { CoursesModule } from './couses-component/courses.module';
+import { CoursesService } from './couses-component/services/courses.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, CoursesModule, HttpClientModule],
   providers: [
     {
-      provide: COURSES_SERVICE_TOKEN,
-      useFactory: coursesServiceFactory,
-      deps: [HttpClient],
+      provide: CoursesService,
+      useClass: CoursesService
     },
   ],
   bootstrap: [AppComponent],
