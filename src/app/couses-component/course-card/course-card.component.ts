@@ -1,14 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, SkipSelf } from '@angular/core';
-
-import { coursesServiceFactory } from '../../factories/course-service-factory';
-import { COURSES_SERVICE_TOKEN } from '../../injection-token/course-service-injection-token';
+import { Component, Input } from '@angular/core';
 import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'course-card',
   templateUrl: 'course-card.component.html',
   styleUrls: ['course-card.component.scss'],
+  providers: [],
 })
 export class CourseCardComponent {
   @Input() course!: string;
