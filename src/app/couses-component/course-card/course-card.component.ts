@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
+
 import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'course-card',
   templateUrl: 'course-card.component.html',
   styleUrls: ['course-card.component.scss'],
-  providers: [],
+  providers: [CoursesService],
 })
 export class CourseCardComponent {
   @Input() course!: string;

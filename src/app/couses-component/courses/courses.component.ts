@@ -4,7 +4,7 @@ import { CoursesService } from '../services/courses.service';
 @Component({
   selector: 'courses-component',
   template: ` <div class="courses" *ngFor="let course of courses">
-    <course-card [course]="course"></course-card>
+    <course-card appHighlighted [course]="course"></course-card>
   </div>`,
 })
 export class CoursesComponent {
